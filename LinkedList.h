@@ -7,9 +7,40 @@ using namespace std;
 
 template<typename T>
 class LinkedList : public LinkedListInterface<T> {
+	private:
+		struct Node {
+			T data;
+			Node* next;
+			Node(T theData, Node* nextNode = NULL) : data(theData), Node(nextNode) {}
+		};
+
+		Node* head;
+		int numItems;
+
+		Node* find(T findMe) {
+			if (numItems == 0) {
+				return NULL;
+			}
+			Node* i;
+			for(i = head; i != NULL; i = i->next) {
+				if (i->data == findMe) {
+					return i;
+				}
+			}
+			return NULL;
+		}
+
 	public:
-		LinkedList() {};
-		~LinkedListInterface() {};
+		LinkedList() : head(NULL), numItems(0) {};
+		~LinkedList() {
+			Node* currItem = head;
+			Node* nextItem = NULL;
+			while (currItem != NULL) {
+				nextItem = currItem->next;
+				delete currItem;
+				currItem = nextItem;
+			}
+		};
 
 		/*
 		insertHead
@@ -18,7 +49,13 @@ class LinkedList : public LinkedListInterface<T> {
 
 		Do not allow duplicate values in the list.
 		*/
-		virtual void insertHead(T value) = 0;
+		void insertHead(T value) {
+			if (find(value) == NULL) {
+				Node* newItem = new Node(value, head);
+				head = newItem;
+				numItems++
+			}
+		};
 
 		/*
 		insertTail
@@ -27,7 +64,22 @@ class LinkedList : public LinkedListInterface<T> {
 
 		Do not allow duplicate values in the list.
 		*/
-		virtual void insertTail(T value) = 0;
+		void insertTail(T value) {
+			if (numItems == 0) {
+				head = new Node(value);
+				++numItems;
+			}
+			else if (find(value) == NULL) {
+				Node* newItem = new Node(value);
+				Node* currItem = head;
+				while (currItem->next != NULL) {
+					currItem = currItem->next;
+				}
+				//Now currItem points to the last item of the list
+				currItem->next = newItem;
+				numItems++
+			}
+		};
 
 		/*
 		insertAfter
@@ -38,7 +90,7 @@ class LinkedList : public LinkedListInterface<T> {
 		A node should only be added if the node whose value is equal to
 		insertionNode is in the list. Do not allow duplicate values in the list.
 		*/
-		virtual void insertAfter(T value, T insertionNode) = 0;
+		void insertAfter(T value, T insertionNode);
 
 		/*
 		remove
@@ -85,5 +137,7 @@ class LinkedList : public LinkedListInterface<T> {
 		virtual string toString() = 0;
 
 };
+
+
 
 #endif
