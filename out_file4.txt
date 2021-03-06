@@ -5,22 +5,22 @@ insertTail Coming
 insertTail front
 size 3
 printList
-  Combing Combing Combing
+  Combing Coming front
 remove front
 size 2
 printList
-  Combing Combing
+  Combing Coming
 insertTail back
 insertTail to
 insertTail where
 remove where
 size 4
 printList
-  Combing Combing Combing Combing
+  Combing Coming back to
 insertTail where
 size 5
 printList
-  Combing Combing Combing Combing Combing
+  Combing Coming back to where
 insertTail you
 insertTail started
 insertTail is
@@ -35,13 +35,13 @@ insertTail -Terry
 insertTail Pratchett
 size 17
 printList
-  Combing Combing Combing Combing Combing Combing Combing Combing Combing Combing Combing Combing Combing Combing Combing Combing Combing
+  Combing Coming back to where you started is not the same as never leavening. leaving. -Terry Pratchett
 remove Combing
 remove leavening.
 remove computerviruses
 size 15
 printList
-  Coming Coming Coming Coming Coming Coming Coming Coming Coming Coming Coming Coming Coming Coming Coming
+  Coming back to where you started is not the same as never leaving. -Terry Pratchett
 clear
 size 0
 printList
