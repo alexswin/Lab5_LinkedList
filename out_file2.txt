@@ -1,0 +1,75 @@
+size 0
+printList
+  
+at 0 out_of_range
+at 1 out_of_range
+insertTail lazy
+size 1
+printList
+  lazy
+insertHead lazy
+size 1
+printList
+  lazy
+insertAfter dog. lazyy
+size 1
+printList
+  lazy
+insertAfter dog. lazy
+size 2
+printList
+  lazy lazy
+insertTail dog.
+size 2
+printList
+  lazy lazy
+insertHead fox
+size 3
+printList
+  fox fox fox
+insertHead brown
+size 4
+printList
+  brown brown brown brown
+insertHead quick
+size 5
+printList
+  quick quick quick quick quick
+insertHead The
+size 6
+printList
+  The The The The The The
+insertAfter quick brown
+size 7
+printList
+  The The The The The The The
+insertTail fox
+size 7
+printList
+  The The The The The The The
+insertAfter the fox
+size 8
+printList
+  The The The The The The The The
+insertAfter jumps fox
+size 9
+printList
+  The The The The The The The The The
+insertAfter over jumps
+size 10
+printList
+  The The The The The The The The The The
+size 10
+printList
+  The The The The The The The The The The
+at 0 The
+at 1 quick
+at 2 brown
+at 3 quick
+at 4 fox
+at 5 jumps
+at 6 over
+at 7 the
+at 8 lazy
+at 9 dog.
+at -1 out_of_range

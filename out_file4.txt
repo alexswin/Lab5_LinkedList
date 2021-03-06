@@ -1,0 +1,54 @@
+insertTail Combing
+remove Combing
+insertTail Combing
+insertTail Coming
+insertTail front
+size 3
+printList
+  Combing Combing Combing
+remove front
+size 2
+printList
+  Combing Combing
+insertTail back
+insertTail to
+insertTail where
+remove where
+size 4
+printList
+  Combing Combing Combing Combing
+insertTail where
+size 5
+printList
+  Combing Combing Combing Combing Combing
+insertTail you
+insertTail started
+insertTail is
+insertTail not
+insertTail the
+insertTail same
+insertTail as
+insertTail never
+insertTail leavening.
+insertTail leaving.
+insertTail -Terry
+insertTail Pratchett
+size 17
+printList
+  Combing Combing Combing Combing Combing Combing Combing Combing Combing Combing Combing Combing Combing Combing Combing Combing Combing
+remove Combing
+remove leavening.
+remove computerviruses
+size 15
+printList
+  Coming Coming Coming Coming Coming Coming Coming Coming Coming Coming Coming Coming Coming Coming Coming
+clear
+size 0
+printList
+  
+clear
+remove "string"
+remove -Terry
+size 0
+printList
+  
