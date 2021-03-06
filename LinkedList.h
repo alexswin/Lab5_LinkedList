@@ -2,6 +2,7 @@
 #define LINKEDLIST_H
 
 #include <string>
+#include "LinkedListInterface.h"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ class LinkedList : public LinkedListInterface<T> {
 		struct Node {
 			T data;
 			Node* next;
-			Node(T theData, Node* nextNode = NULL) : data(theData), Node(nextNode) {}
+			Node(T theData, Node* nextNode = NULL) : data(theData), next(nextNode) {};
 		};
 
 		Node* head;
@@ -53,7 +54,7 @@ class LinkedList : public LinkedListInterface<T> {
 			if (find(value) == NULL) {
 				Node* newItem = new Node(value, head);
 				head = newItem;
-				numItems++
+				++numItems;
 			}
 		};
 
@@ -77,7 +78,7 @@ class LinkedList : public LinkedListInterface<T> {
 				}
 				//Now currItem points to the last item of the list
 				currItem->next = newItem;
-				numItems++
+				++numItems;
 			}
 		};
 
@@ -90,7 +91,13 @@ class LinkedList : public LinkedListInterface<T> {
 		A node should only be added if the node whose value is equal to
 		insertionNode is in the list. Do not allow duplicate values in the list.
 		*/
-		void insertAfter(T value, T insertionNode);
+		void insertAfter(T value, T insertionNode) {
+			Node* afterMe = find(insertionNode);
+			if (afterMe == NULL) return;
+			Node* newNode = new Node(value, afterMe->next);
+			afterMe->next = newNode;
+			++numItems;
+		};
 
 		/*
 		remove
@@ -99,14 +106,14 @@ class LinkedList : public LinkedListInterface<T> {
 
 		The list may or may not include a node with the given value.
 		*/
-		virtual void remove(T value) = 0;
+		void remove(T value) = 0;
 
 		/*
 		clear
 
 		Remove all nodes from the list.
 		*/
-		virtual void clear() = 0;
+		void clear() = 0;
 
 		/*
 		at
@@ -116,14 +123,14 @@ class LinkedList : public LinkedListInterface<T> {
 
 		If the given index is out of range of the list, throw an out of range exception.
 		*/
-		virtual T at(int index) = 0;
+		T at(int index) = 0;
 
 		/*
 		size
 
 		Returns the number of nodes in the list.
 		*/
-		virtual int size() = 0;
+		int size() = 0;
 
 		/*
 		toString
@@ -134,7 +141,7 @@ class LinkedList : public LinkedListInterface<T> {
 		For example, a LinkedList containing the value 1, 2, 3, 4, and 5 should return
 		"1 2 3 4 5"
 		*/
-		virtual string toString() = 0;
+		string toString() = 0;
 
 };
 
